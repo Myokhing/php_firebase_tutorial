@@ -1,10 +1,26 @@
 
     <?php
-    session_start();
+    //session_start();
+    include('authentication.php');
     include('include/header.php');
     
     ?>
     <div class="container">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Total Number of Record: </h5>
+                        <?php
+                        include('dbcon.php');
+                        $ref_table = 'contacts';
+                        $total_count = $reference = $database->getReference($ref_table)->getSnapshot()->numChildren();
+                        echo $total_count;
+                        ?>
+                    </div> 
+                </div>
+            </div> 
+        </div>
         <div class="row">
             <div class="col-md-12">
                 <?php 
